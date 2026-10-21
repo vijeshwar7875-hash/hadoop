@@ -212,7 +212,7 @@ EOF
 STEP 9. Compile, run, view output
 ---------------------------------
 cd ~/wordcount
-javac -classpath $(hadoop classpath) WordCount.java
+javac --release 11 -classpath $(hadoop classpath) -d wordcount_classes WordCount.java
 jar cf wc.jar WordCount*.class
 hadoop jar wc.jar WordCount /input/file.txt /output/wc
 hdfs dfs -ls /output/wc
