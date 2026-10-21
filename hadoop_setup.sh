@@ -184,7 +184,7 @@ public class WordCount {
 EOF
 
 echo "=== 9. Compile, run, view output ==="
-javac -classpath $(hadoop classpath) WordCount.java
+javac --release 11 -classpath $(hadoop classpath) -d wordcount_classes WordCount.java
 jar cf wc.jar WordCount*.class
 hdfs dfs -rm -r -f /output/wc
 hadoop jar wc.jar WordCount /input/file.txt /output/wc
